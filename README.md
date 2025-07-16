@@ -53,12 +53,12 @@ http://localhost:3000
 ---
 
 ## API Endpoints
-
+### Base URL (Render): https://shortlink-y9x1.onrender.com
 ### 1. Encode
 
 **POST** `/api/v1/encode`
 
-**Request:**
+**Request Body (JSON):**
 
 ```json
 {
@@ -135,3 +135,4 @@ bundle exec rspec
 | Maintainability                | ✅          |
 | Security considerations        | ✅          |
 | Scalability thoughts           | ✅          |
+
