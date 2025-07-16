@@ -122,15 +122,6 @@ bundle exec rspec
 
 ---
 
-## Attack Vectors Considered
-
-- Brute-force guessing — mitigated with randomized codes.
-- Input injection — params are validated and sanitized.
-- Collisions — handled with retries and max attempt guard.
-- Missing records — 404 with clean JSON error.
-
----
-
 ## Evaluation Criteria (Self-Check)
 
 | Criteria                       | ✅ Covered |
