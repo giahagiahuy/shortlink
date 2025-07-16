@@ -7,7 +7,7 @@ A simple Ruby on Rails-based URL shortening service that converts long URLs into
 ## Features
 
 - `POST /encode`: Encodes a long original URL to a short one.
-- `POST /decode`: Decodes a short URL back to its original.
+- `GET /decode`: Decodes a short URL back to its original.
 - Ensures short code uniqueness with collision handling.
 - JSON-formatted responses with appropriate status codes.
 - Clear error handling using `rescue_from`.
@@ -22,16 +22,18 @@ A simple Ruby on Rails-based URL shortening service that converts long URLs into
 
 - Ruby 3.4.4
 - Rails 7.1.3
-- SQLite3
+- PostgreSQL 15
 - Bundler
 
 ### Installation
 
 ```bash
-git clone https://github.com/your-username/shortlink.git
+git clone https://github.com/giahagiahuy/shortlink.git
 cd shortlink
 bundle install
-rails db:setup
+# Optional: create a `.env` file with DB_USERNAME and DB_PASSWORD
+rails db:create
+rails db:migrate
 ```
 
 ---
@@ -115,7 +117,7 @@ bundle exec rspec
 
 - Longer Short Codes: Increase short code length from 6 to 7+ characters to allow more unique combinations (62⁷ ≫ 62⁶).
 - Uniqueness & Performance: As the number of rows grows, uniqueness checks and lookups can become slower.Use read replicas for scaling read-heavy decode operations.
-- Horizontally scalling: Use multiple app instances behind a load balancer.
+- Horizontally scaling: Use multiple app instances behind a load balancer.
 - Caching: Use Redis to cache short code lookups to reduce DB hits.
 - API Rate Limiting: Use Rack::Attack to protect against abuse and DDoS.
 - Monitoring / Logging: Use tools like Sentry or New Relic for visibility into errors and performance.
